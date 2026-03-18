@@ -2,6 +2,8 @@ import { Outlet, createRootRoute } from "@tanstack/react-router";
 import { TanStackDevtools } from "@tanstack/react-devtools";
 
 import "../styles.css";
+import Header from "#/components/Header";
+import Footer from "#/components/Footer";
 
 export const Route = createRootRoute({
   component: RootComponent,
@@ -9,11 +11,11 @@ export const Route = createRootRoute({
 function RootComponent() {
   return (
     <div className="min-h-screen flex flex-col">
-      {/* <Navbar /> ส่วนกลางที่อยากให้มีทุกหน้า */}
+      <Header />
       <main className="flex-1">
-        <Outlet /> {/* หน้าจอของแต่ละ Feature จะมาโผล่ตรงนี้ */}
+        <Outlet />
       </main>
-      {/* <Footer /> ส่วนท้ายที่อยากให้มีทุกหน้า */}
+      <Footer />
       <TanStackDevtools />
     </div>
   );
