@@ -12,13 +12,17 @@ Whenever you generate code or propose an architecture, you MUST strictly follow 
 - Validation: Zod (for form validation and search params)
 - Linter/Formatter: Biome (Assume strict linting)
 
-2. ARCHITECTURE (Feature-Based Design)
+2. ARCHITECTURE (Feature-Based & Global Design)
 
-- Group files by business feature, NOT by file type.
-- Structure: `src/features/<feature-name>/`
-- Inside a feature, use: `api/` (API client/fetching), `components/` (UI), `hooks/` (logic), `types/`, and `utils/`.
+- Group files by business feature first. Structure: `src/features/<feature-name>/`
+- Inside a feature, use: `api/`, `components/`, `hooks/`, `types/`, and `utils/`.
 - Every feature MUST have an `index.ts` acting as the public API. Other modules must only import from this `index.ts`.
-- Keep the global `src/components/` only for truly reusable UI elements (e.g., buttons, inputs).
+- GLOBAL SHARED FILES: If a component, hook, service, type, or utility is used across multiple features, it MUST be placed in the global directories at the `src/` level:
+  - `src/components/` (e.g., UI library, buttons, modals)
+  - `src/services/` (e.g., global API clients, auth services)
+  - `src/hooks/` (e.g., useWindowSize, useAuth)
+  - `src/types/` (e.g., global interfaces, API error types)
+  - `src/utils/` (e.g., date formatters, string helpers)
 
 3. ROUTING RULES (TanStack Router)
 
