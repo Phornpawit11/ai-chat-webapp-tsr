@@ -23,6 +23,7 @@ Whenever you generate code or propose an architecture, you MUST strictly follow 
   - `src/hooks/` (e.g., useWindowSize, useAuth)
   - `src/types/` (e.g., global interfaces, API error types)
   - `src/utils/` (e.g., date formatters, string helpers)
+  - `src/stores/` (e.g., global state management zustand)
 
 3. ROUTING RULES (TanStack Router)
 
